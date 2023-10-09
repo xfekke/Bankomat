@@ -1,3 +1,5 @@
+import Card from './Card.js'
+
 export default class Bankomat {
     cardInserted;
     validCard;
@@ -15,16 +17,28 @@ export default class Bankomat {
     enterPin(cardPin) {
         if (cardPin == 1234) {
             this.validCard = true;
+            console.log(this.validCard)
         } else {
             this.validCard = false;
+            console.log(this.validCard)
         }
 
     }
-    withdrawMoney() {
+    withdrawMoney(moneyAmount) {
+        if (moneyAmount > this.machineBalance) {
+            console.log(moneyAmount)
+            console.log(`Det finns inte tillräckligt med pengar i bankomaten. Du kan ta ut upp till ${this.machineBalance}`)
+            console.log(`Hur mycket vill du ta ut?`)
+
+        } else {
+            this.machineBalance -= moneyAmount
+            console.log(moneyAmount)
+            console.log(`Här har du dina ${moneyAmount}kr. Glöm inte ditt kort! Tack för att du använder bankomaten!`)
+        }
+        
+
 
     }
-    getBalance() {
 
-    }
 }
 
