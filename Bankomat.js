@@ -1,19 +1,30 @@
-class Bankomat {
-        constructor(){
-            this.cardInserted = false;
+export default class Bankomat {
+    cardInserted;
+    validCard;
+    machineBalance;
+
+    constructor(cardInserted, validCard, machineBalance) {
+        this.cardInserted = false;
+        this.validCard = false;
+        this.machineBalance = 11000;
+    }
+
+    insertCard() {
+        this.cardInserted = true;
+    }
+    enterPin(cardPin) {
+        if (cardPin == 1234) {
+            this.validCard = true;
+        } else {
             this.validCard = false;
-            this.machineBalance = 11000;
         }
 
-        insertCard(Card) {
-            if (!this.cardInserted) {
-                this.cardInserted = true;
-                console.log("Vänligen sätt in ditt kort")
-            } else {
-                console.log("Det finns redan ett kort i bankomaten")
-            }
-            
-        }
+    }
+    withdrawMoney() {
+
+    }
+    getBalance() {
+
+    }
 }
 
-export class Bankomat{};
